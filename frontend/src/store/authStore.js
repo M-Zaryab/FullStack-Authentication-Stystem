@@ -1,7 +1,8 @@
 import { create } from "zustand";
 import axios from "axios";
 
-const API_URL = "http://localhost:8080/api/auth";
+// const API_URL = "http://localhost:8080/api/auth";
+const API_URL = "https://mernauth-server222.vercel.app/api/auth";
 
 export const useAuthStore = create((set) => ({
   user: null,
