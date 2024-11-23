@@ -20,17 +20,9 @@ app.listen(PORT, () => {
   console.log(`Server is running on port http://localhost:${PORT}`);
 });
 
-app.get("/", (req, res) => {
-  app.use(express.static(path.resolve(__dirname, "frontend", "dist")));
-  res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"));
-});
-
 // app.get("/", (req, res) => {
-//   res.send("Hey this is my API running 🥳");
-// });
-
-// app.get("/about", (req, res) => {
-//   res.send("This is my about route..... ");
+//   app.use(express.static(path.resolve(__dirname, "frontend", "dist")));
+//   res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"));
 // });
 
 // Export the Express API
