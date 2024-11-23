@@ -161,7 +161,7 @@ const forgotPassword = async (req, res) => {
 
     await user.save();
 
-    console.log("process.env.BASE_URL ", process.env.BASE_URL);
+    // console.log("process.env.BASE_URL ", process.env.BASE_URL);
 
     // `${process.env.BASE_URL}/reset-password/${resetToken}`
     // send email
