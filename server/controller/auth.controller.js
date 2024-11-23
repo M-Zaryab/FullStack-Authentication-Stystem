@@ -167,8 +167,8 @@ const forgotPassword = async (req, res) => {
     // send email
     await sendPasswordResetEmail(
       user.email,
-      `https://mern-auth-final.vercel.app/reset-password/${resetToken}`
-      // `${process.env.BASE_URL}/reset-password/${resetToken}`
+      // `https://mern-auth-final.vercel.app/reset-password/${resetToken}`
+      `${process.env.CLIENT_URL}/reset-password/${resetToken}`
     );
 
     res.status(200).json({
