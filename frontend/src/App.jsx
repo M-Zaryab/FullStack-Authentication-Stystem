@@ -5,6 +5,7 @@ import DashboardPage from "./pages/DashboardPage";
 import LoginPage from "./pages/LoginPage";
 import ForgotPasswordPage from "./pages/ForgetPasswordPage";
 import ResetPasswordPage from "./pages/ResetPasswordPage";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
             element={<ResetPasswordPage />}
           />
         </Routes>
+        <Toaster />
       </div>
     </>
   );

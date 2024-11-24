@@ -21,8 +21,6 @@ export const useAuthStore = create((set) => ({
         name,
       });
 
-      console.log("signup response ", response);
-      console.log("user ", response.data.user);
       set({
         user: response.data.user,
         isAuthenticated: true,
@@ -35,7 +33,6 @@ export const useAuthStore = create((set) => ({
       //     isLoading: false,
       //   });
     } catch (error) {
-      console.log("error.response.data.message ", error);
       set({
         error: error.response.data.error.message || "Error signing up",
         isLoading: false,
@@ -86,7 +83,7 @@ export const useAuthStore = create((set) => ({
         email,
         password,
       });
-      console.log("login response ", response);
+      
       set({
         isAuthenticated: true,
         user: response.data.user,
@@ -108,7 +105,7 @@ export const useAuthStore = create((set) => ({
       const response = await axios.post(`${API_URL}/forgot-password`, {
         email,
       });
-      console.log("forgetPassword response ", response);
+      
       set({ message: response.data.message, isLoading: false });
     } catch (error) {
       set({

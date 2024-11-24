@@ -2,10 +2,10 @@ import { motion } from "framer-motion";
 import { Loader, Lock, Mail, User } from "lucide-react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
 import Input from "../components/Input";
 import PasswordStrengthMeter from "../components/PasswordStrengthMeter";
 import { useAuthStore } from "../store/authStore";
+import toast from "react-hot-toast";
 
 const SignUpPage = () => {
   const [name, setName] = useState("");
@@ -22,7 +22,7 @@ const SignUpPage = () => {
       await signup(email, password, name);
       navigate("/verify-email");
     } catch (error) {
-      console.log(error);
+      toast.error(error.message);
     }
   };
   return (

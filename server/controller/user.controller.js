@@ -17,11 +17,7 @@ const register = async (req, res) => {
     try {
       const salt = bcrypt.genSaltSync(10);
       hashedPassword = bcrypt.hashSync(password, salt);
-
-      console.log("successfully hashed password: ", hashedPassword);
-    } catch (error) {
-      console.log("error generating salt: ", error.message);
-    }
+    } catch (error) {}
 
     const newUser = User.create({
       email,
@@ -55,7 +51,6 @@ const signin = async (req, res) => {
     const { password, ...others } = user._doc;
     res.status(200).json({ user: others });
   } catch (error) {
-    console.error(error);
     res.status(500).json({ message: "Internal Server Error" });
   }
 };

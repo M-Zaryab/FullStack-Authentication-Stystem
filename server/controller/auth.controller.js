@@ -24,7 +24,6 @@ const signup = async (req, res) => {
     }
 
     const userAlreadyExists = await User.findOne({ email });
-    console.log("userAlreadyExists", userAlreadyExists);
 
     if (userAlreadyExists) {
       return res
@@ -96,7 +95,6 @@ const verifyEmail = async (req, res) => {
       },
     });
   } catch (error) {
-    console.log("error in verifyEmail ", error);
     res.status(500).json({ success: false, message: "Server error" });
   }
 };
@@ -131,7 +129,6 @@ const login = async (req, res) => {
       },
     });
   } catch (error) {
-    console.log("Error in login ", error);
     res.status(400).json({ success: false, message: error.message });
   }
 };
@@ -161,10 +158,6 @@ const forgotPassword = async (req, res) => {
 
     await user.save();
 
-    // console.log("process.env.BASE_URL ", process.env.BASE_URL);
-
-    // `${process.env.BASE_URL}/reset-password/${resetToken}`
-    // send email
     await sendPasswordResetEmail(
       user.email,
       // `https://mern-auth-final.vercel.app/reset-password/${resetToken}`
@@ -177,7 +170,6 @@ const forgotPassword = async (req, res) => {
       message: "Password reset link sent to your email",
     });
   } catch (error) {
-    console.log("Error in forgotPassword ", error);
     res.status(400).json({ success: false, message: error.message });
   }
 };
@@ -212,7 +204,6 @@ const resetPassword = async (req, res) => {
       .status(200)
       .json({ success: true, message: "Password reset successful" });
   } catch (error) {
-    console.log("Error in resetPassword ", error);
     res.status(400).json({ success: false, message: error.message });
   }
 };
@@ -228,7 +219,6 @@ const checkAuth = async (req, res) => {
 
     res.status(200).json({ success: true, user });
   } catch (error) {
-    console.log("Error in checkAuth ", error);
     res.status(400).json({ success: false, message: error.message });
   }
 };

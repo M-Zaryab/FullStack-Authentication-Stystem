@@ -21,10 +21,10 @@ const sendVerificationEmail = async (email, verificationToken) => {
   await new Promise((resolve, reject) => {
     transporter.sendMail(mailOptions, function (error, info) {
       if (error) {
-        console.log("error sending verification mail ", error);
+        // console.log("error sending verification mail ", error);
         reject(error);
       } else {
-        console.log("Email sent: " + info.response);
+        // console.log("Email sent: " + info.response);
         resolve(info);
       }
     });
@@ -51,10 +51,10 @@ const sendForgotPasswordEmail = async (email, resetURL) => {
   await new Promise((resolve, reject) => {
     transporter.sendMail(mailOptions, function (error, info) {
       if (error) {
-        console.log("Error while sending forgot password mail", error);
+        // console.log("Error while sending forgot password mail", error);
         reject(error);
       } else {
-        console.log("Email sent: " + info.response);
+        // console.log("Email sent: " + info.response);
         resolve(info);
       }
     });
@@ -81,10 +81,10 @@ const sendResetSuccessEmail = async (email) => {
   await new Promise((resolve, reject) => {
     transporter.sendMail(mailOptions, function (error, info) {
       if (error) {
-        console.log("Error while sending reset password success mail", error);
+        // console.log("Error while sending reset password success mail", error);
         reject(error);
       } else {
-        console.log("Email sent: " + info.response);
+        // console.log("Email sent: " + info.response);
         resolve(info);
       }
     });
@@ -112,10 +112,10 @@ const sendPasswordResetEmail = async (email, resetURL) => {
     await new Promise((resolve, reject) => {
       transporter.sendMail(mailOptions, function (error, info) {
         if (error) {
-          console.log("Error while sending reset password mail", error);
+          // console.log("Error while sending reset password mail", error);
           reject(error);
         } else {
-          console.log("Email sent: " + info.response);
+          // console.log("Email sent: " + info.response);
           resolve(info);
         }
       });
@@ -129,7 +129,7 @@ const sendPasswordResetEmail = async (email, resetURL) => {
     //   }
     // });
   } catch (error) {
-    console.error(`Error sending password reset email`, error);
+    // console.error(`Error sending password reset email`, error);
 
     throw new Error(`Error sending password reset email: ${error}`);
   }
@@ -150,10 +150,10 @@ const sendWelcomeEmail = async (email, name) => {
     await new Promise((resolve, reject) => {
       transporter.sendMail(mailOptions, function (error, info) {
         if (error) {
-          console.log("Error while Welcome sending mail", error);
+          // console.log("Error while Welcome sending mail", error);
           reject(error);
         } else {
-          console.log("Email sent: " + info.response);
+          // console.log("Email sent: " + info.response);
           resolve(info);
         }
       });
@@ -167,7 +167,7 @@ const sendWelcomeEmail = async (email, name) => {
     //   }
     // });
   } catch (error) {
-    console.error(`Error sending welcome email`, error);
+    // console.error(`Error sending welcome email`, error);
 
     throw new Error(`Error sending welcome email: ${error}`);
   }
